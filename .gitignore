@@ -11,3 +11,8 @@
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
+
+*.*~
+*.aux
+*.log
+preliminary-assumptions.pdf
