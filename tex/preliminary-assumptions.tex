@@ -3,6 +3,7 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
+\usepackage{color}
 
 \newcommand{\TODO}[1]{\textcolor{blue}{TODO: #1}}
 \newcommand{\ang}[1]{ang.~{\itshape #1}}
@@ -30,10 +31,10 @@ Do badań wykorzystane zostaną algorytmy zaimplementowane w różnych pakietach
 LDA (\ang{Linear Discriminant Analysis}) -- celem tej metody jest określenie liniowej kombinacji cech, która pozwoli na najlepsze przyporządkowanie obserwacji do klas, w naszym przypadku dwóch. Przypuśćmy, że mamy macierz $p$ cech dla $N$ obserwacji $\mathbf{x}=(x_{1},...,x_{p})^{T}$. P-wymiarowe wektory rzutujemy na prostą określoną przez kierunek $w$. Cel analizy można osiągnąć poprzez wybór takiego kierunku $w$, który maksymalizuje odległości pomiędzy zrzutowanymi na $w$ średnimi dla klas jednocześnie minimalizując wariancję wewnątrz każdej z klas.
 
 \subsection{Drzewo decyzyjne}
-%\TODO{Kuba}
+\TODO{Kuba opiszesz?}
 
 \subsection{Lasy losowe}
-%\TODO
+\TODO{Kuba opiszesz?}
 
 \subsection{KNN}
 Metoda K-najbliższych sąsiadów (\ang{K-nearest neighbors}) polega na klasyfikacji danej obserwacji na podstawie przynależności do klas jej $K$ najbliższych sąsiadów (według wybranej miary). Wybrana miara odległości (tzw. miara niepodobieństwa) musi spełniać konkretne założenia. Przykłady najczęściej wykorzystywanych miar: zwykła odległość euklidesowa, odległość miejska (taksówkowa) lub odległość Minkowskiego. Przebieg algorymu: iteracyjnie, dla każdej obserwacji zbioru testowego liczymy odległości od elementów zbioru treningowego, wybieramy $K$ najbliższych obserwacji i przypisujemy tę klasę, która wśród tych $K$ sąsiadów wystąpiła najczęściej. Liczba $K$ wybierana jest arbitrarnie przed wykonaniem modelu.
@@ -64,7 +65,9 @@ W zbiorze danych mamy 12 zmiennych:
 Aby ocenić działanie poszczególnych modeli planujemy zestwić ze sobą klasy rzeczyiwiste dla części testowej naszych danych oraz klasy przewidziane przez modele.
 
 \subsubsection{Macierz kontyngencji (macierz pomyłek)}
-%\TODO wstawić rysunek macierzy z https://pl.wikipedia.org/wiki/Tablica_pomy%C5%82ek
+\TODO{Kuba wstawisz rysunek? Link w komentarzu poniżej.}
+% https://pl.wikipedia.org/wiki/Tablica_pomyłek
+
 Na podstawie macierzy 2x2 możemy wyliczyć następujące wskaźniki:
 \begin{itemize}
 \item czułość (\ang{sensivity}): TPR=TP/(TP+FN)
