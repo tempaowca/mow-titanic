@@ -5,6 +5,7 @@
 \usepackage{indentfirst}
 
 \newcommand{\TODO}[1]{\textcolor{blue}{TODO: #1}}
+\newcommand{\ang}[1]{ang.~{\itshape #1}}
 
 \begin{document}
 
@@ -23,6 +24,19 @@ Prawda jest taka, że o przeżyciu nie zdecydowało tylko szczęście, ale takż
 Do dyspozycji mamy dane zawierające 891 obserwacji i na ich podstawie spróbujemy stwierdzić od jakich parametrów głównie zależała szansa przeżycia w tej katastrofie.
 
 \section{Opis algorytmów}
+Do badań wykorzystane zostaną algorytmy zaimplementowane w różnych pakietach R. Planujemy wykonać następujące modele, należące do metod uczenia pod nadzorem.
+
+\subsection{LDA}
+LDA (\ang{Linear Discriminant Analysis}) -- celem tej metody jest określenie liniowej kombinacji cech, która pozwoli na najlepsze przyporządkowanie obserwacji do klas, w naszym przypadku dwóch. Przypuśćmy, że mamy macierz $p$ cech dla $N$ obserwacji $\mathbf{x}=(x_{1},...,x_{p})^{T}$. P-wymiarowe wektory rzutujemy na prostą określoną przez kierunek $w$. Cel analizy można osiągnąć poprzez wybór takiego kierunku $w$, który maksymalizuje odległości pomiędzy zrzutowanymi na $w$ średnimi dla klas jednocześnie minimalizując wariancję wewnątrz każdej z klas.
+
+\subsection{Drzewo decyzyjne}
+%\TODO{Kuba}
+
+\subsection{Lasy losowe}
+%\TODO
+
+\subsection{KNN}
+Metoda K-najbliższych sąsiadów (\ang{K-nearest neighbors}) polega na klasyfikacji danej obserwacji na podstawie przynależności do klas jej $K$ najbliższych sąsiadów (według wybranej miary). Wybrana miara odległości (tzw. miara niepodobieństwa) musi spełniać konkretne założenia. Przykłady najczęściej wykorzystywanych miar: zwykła odległość euklidesowa, odległość miejska (taksówkowa) lub odległość Minkowskiego. Przebieg algorymu: iteracyjnie, dla każdej obserwacji zbioru testowego liczymy odległości od elementów zbioru treningowego, wybieramy $K$ najbliższych obserwacji i przypisujemy tę klasę, która wśród tych $K$ sąsiadów wystąpiła najczęściej. Liczba $K$ wybierana jest arbitrarnie przed wykonaniem modelu.
 
 \section{Plan badań}
 
