@@ -26,6 +26,23 @@ Do dyspozycji mamy dane zawierające 891 obserwacji i na ich podstawie spróbuje
 
 \subsection{Cel poszczególnych eksperymentów}
 \subsection{Charakterystyka zbioru danych}
+
+W zbiorze danych mamy 12 zmiennych:
+\begin{itemize}
+\item Identyfikator pasażera ({\itshape PassengerId}) -- nie bierzemy jej pod uwagę, zmienna porządkowa;
+\item Przeżycie ({\itshape Survived}) -- oznacza przeżycie danego pasażera, 0 - nie, 1 - tak, zmienna objaśniana;
+\item Klasa pasażerska ({\itshape Pclass}) -- 1, 2 lub 3, nie ma braków danych, zmienna objaśniająca;
+\item Imię i nazwisko z tytułem ({\itshape Name}) -- wstępnie wydaje nam się, że nie będziemy jej używać, jednak być może dałoby się jakoś z tego wyłączyć grupy ludzi po tytułach;
+\item Płeć ({\itshape Sex}) -- nie ma braków danych, zmienna objaśniająca;
+\item Wiek ({\itshape Age}) -- 177 braków, niektóre algorytmy sobie poradzą, inny sposób to dolosować, zastosujemy najprawdopodobniej oba podejścia, zmienna objaśniająca;
+\item Liczba rodzeństwa/małżonków na pokładzie ({\itshape SibSp}) -- nie ma braków danych, zmienna objaśniająca;
+\item Liczba dzieci/rodziców na pokładzie ({\itshape Parch}) -- nie ma braków danych, zmienna objaśniająca;
+\item Numer biletu ({\itshape Ticket}) -- wstępnie wydaje się nieistotne, jednak być może będzie się dało jakoś pogrupować, być może przedrostki w biletach oznaczają jakieś częsci statku i będzie się dało to wykorzystać;
+\item Opłata ({\itshape Fare}) -- nie ma braków danych, zmienna objaśniająca;
+\item Kajuta ({\itshape Cabin}) -- 687 braków, spróbujemy wykorzystać obecność danych, aby lepiej klasyfikować osoby posiadające tę daną;
+\item Miejsce wejścia na pokład ({\itshape Embarked}) -- nie wydaje się, żeby miało to znaczenie, ale może okazać się inaczej, zwłaszcza, że mamy bardzo mało braków, więc spróbujemy wykorzystać.
+\end{itemize}
+
 \subsection{Parametry algorytmów}
 \subsection{Miary jakości i procedury oceny modeli}
 
