@@ -61,6 +61,19 @@ W zbiorze danych mamy 12 zmiennych:
 
 \subsection{Parametry algorytmów}
 \subsection{Miary jakości i procedury oceny modeli}
+Aby ocenić działanie poszczególnych modeli planujemy zestwić ze sobą klasy rzeczyiwiste dla części testowej naszych danych oraz klasy przewidziane przez modele.
+
+\subsubsection{Macierz kontyngencji (macierz pomyłek)}
+%\TODO wstawić rysunek macierzy z https://pl.wikipedia.org/wiki/Tablica_pomy%C5%82ek
+Na podstawie macierzy 2x2 możemy wyliczyć następujące wskaźniki:
+\begin{itemize}
+\item czułość (\ang{sensivity}): TPR=TP/(TP+FN)
+\item specyficzność (\ang{specificity}): TNR=TN/(FP+TN)
+\item precyzja (\ang{precision}): PR=TP/(TP+FP)
+\item dokładność (\ang{accuracy}): ACC=(TP+TN)/(TP+TN+FP+FN)
+\end{itemize}
+
+W zależności od aspektu klasyfikacji, na którym nam najbardziej zależy (np. chcemy trafniej przewidywać ludzi którzy na pewno nie przeżyją) możemy porównywać ze sobą odpowiednie wartości.
 
 \section{Otwarte kwestie}
 
