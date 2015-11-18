@@ -78,6 +78,17 @@ Na podstawie macierzy 2x2 możemy wyliczyć następujące wskaźniki:
 
 W zależności od aspektu klasyfikacji, na którym nam najbardziej zależy (np. chcemy trafniej przewidywać ludzi którzy na pewno nie przeżyją) możemy porównywać ze sobą odpowiednie wartości.
 
+\subsubsection{Krzywa LIFT}
+\TODO{Tu jeszcze dopiszę}
+
+\subsubsection{Krzywa ROC i miara AUC}
+Krzywa ROC (\ang{Receiver Operating Characteristic}) jest dobrym graficznym sposobem na ocenę jakości modelu. Na wykresie przedstawiamy $czułość$ -- oś Y -- w zależności od wartości $1-specyficzność$ -- oś X. Im model lepiej przewiduje pożądaną klasę, tym szybciej powinna rosnąć funkcja ROC dla początkowych wartości na osi X. Dla modelu losowego krzywa ROC przyjmuje postać prostej.
+
+\TODO{Kuba wstawisz rysunek? Link w komentarzu poniżej.}
+% http://www.matrixscience.com/images/decoy_4.gif
+
+Miarą przydatną do porównywania modeli między sobą jest wskaźnik AUC (\ang{Area Under Curve}), który odpowiada wielkości pola pod krzywą ROC. Wskaźnik przybiera wartości od 0 do 1, gdzie 1 odpowiada modelowi idealnie przewidującemu klasy. Dla modelu losowego otrzymujemy wartość AUC=0.5.
+
 \section{Otwarte kwestie}
 
 \end{document}
