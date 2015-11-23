@@ -15,4 +15,5 @@ vignettes/*.pdf
 *.*~
 *.aux
 *.log
+*.swp
 preliminary-assumptions.pdf
