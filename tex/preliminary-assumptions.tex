@@ -23,7 +23,7 @@ Nasz temat związany jest z tragedią Titanica z 1912 roku. Statek podczas swoje
 
 Prawda jest taka, że o przeżyciu nie zdecydowało tylko szczęście, ale także inne parametry, takie jak: wiek, płeć czy przynależność do grupy społecznej.
 
-Do dyspozycji mamy dane zawierające 891 obserwacji i na ich podstawie spróbujemy stwierdzić od jakich atrybutów i ich wartości zależało przeżycie w tej katastrofie.
+Do dyspozycji mamy dane zawierające 891 obserwacji z etykietą klasy (przeżył/nie przeżył) i na ich podstawie spróbujemy stwierdzić od jakich atrybutów i ich wartości zależało przeżycie w tej katastrofie. Dodatkowo posiadamy też mniejszy zbiór testowy (bez etykiety), dla którego ocenę klasyfikatorów możemy uzyskać poprzez załadowanie wyników na stronę {\itshape kaggle}.
 
 \section{Opis algorytmów}
 Do badań wykorzystane zostaną algorytmy zaimplementowane w różnych pakietach R. Planujemy wykonać następujące modele, należące do metod uczenia pod nadzorem.
@@ -48,8 +48,7 @@ Metoda $K$-najbliższych sąsiadów (\ang{K-nearest neighbors}) polega na klasyf
 \section{Plan badań}
 
 \subsection{Cel poszczególnych eksperymentów}
-
-\TODO{Trochę nie wiem co tu wpisać:P}
+W ramach poszczególnych eksperymentów planujemy zbudować modele i sprawdzić, który z nich najlepiej klasyfikuje pasażerów Titanica. Mamy w planach wykorzystać dane w jak największym stopniu, łącznie z tymi, które na pierwszy rzut oka nie mają wpływu na wynik.
 
 \subsection{Charakterystyka zbioru danych}
 
@@ -70,8 +69,7 @@ W zbiorze danych mamy 12 zmiennych:
 \end{itemize}
 
 \subsection{Parametry algorytmów}
-
-\TODO{Co tu wpsać - warunki stopu w tworzeniu drzew itp.?}
+Planujemy skonstruować klasyfikatory dla różnych parametrów wejściowych, takich jak parametry przycinania czy minimalna wielkość liścia (dla drzew), liczba wybranych cech (dla lasów losowych) czy liczba sąsiadów (dla metody KNN). Najlepsze parametry wybierzemy na podstawie oceny modeli.
 
 \subsection{Miary jakości i procedury oceny modeli}
 Aby ocenić działanie poszczególnych modeli planujemy zestwić ze sobą klasy rzeczyiwiste dla części testowej naszych danych oraz klasy przewidziane przez modele.
@@ -100,6 +98,6 @@ Miarą przydatną do porównywania modeli między sobą jest wskaźnik AUC (\ang
 Jako, że zbiór danych, na którym będziemy operować nie jest zbyt duży, wykorzystamy walidację krzyżową do oceny tworzonych modeli. Początkowy zbiór przykładów zostanie podzielony na $k$ możliwie równych, wzajemnie niezależnych części. Zbiór treningowy staniwić będą $k-1$ części, a $k$-ta część zbiór testowy. Każda z $k$ części będzie użyta $k-1$ razy do konstrukcji modelu i raz do testowania dokładności klasyfikacji. Sumaryczna liczba błędów klasyfikacji dla wszystkich $k$ klasyfikatorów, podzielona przez liczność $n$ oryginalnego zbioru przykładów daje kroswalidacyjne oszacowanie dokonania błędnej klasyfikacji przez dany klasyfikator.
 
 \section{Otwarte kwestie}
-\TODO{Pewnie ostatecznie to wywalimy - no chyba, że wymyśłimy co tu wpisać:P}
+Poza ustaleniem wpływu niektórych zmiennych oraz najlepszych parametrów dla kolejnych algorytmów, możliwe, że postanowimy użyć jeszcze jakichś innych metod, jeżeli te na których przeprowadzimy eksperymenty, okażą się niewystarczające.
 
 \end{document}
