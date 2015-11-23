@@ -97,8 +97,6 @@ Krzywa ROC (\ang{Receiver Operating Characteristic}) jest dobrym graficznym spos
 Miarą przydatną do porównywania modeli między sobą jest wskaźnik AUC (\ang{Area Under Curve}), który odpowiada wielkości pola pod krzywą ROC. Wskaźnik przybiera wartości od 0 do 1, gdzie 1 odpowiada modelowi idealnie przewidującemu klasy. Dla modelu losowego otrzymujemy wartość AUC=0.5.
 
 \subsubsection{Walidacja krzyżowa}
-\TODO{Nie wiem, czy w ogóle o tym pisać}
-
 Jako, że zbiór danych, na którym będziemy operować nie jest zbyt duży, wykorzystamy walidację krzyżową do oceny tworzonych modeli. Początkowy zbiór przykładów zostanie podzielony na $k$ możliwie równych, wzajemnie niezależnych części. Zbiór treningowy staniwić będą $k-1$ części, a $k$-ta część zbiór testowy. Każda z $k$ części będzie użyta $k-1$ razy do konstrukcji modelu i raz do testowania dokładności klasyfikacji. Sumaryczna liczba błędów klasyfikacji dla wszystkich $k$ klasyfikatorów, podzielona przez liczność $n$ oryginalnego zbioru przykładów daje kroswalidacyjne oszacowanie dokonania błędnej klasyfikacji przez dany klasyfikator.
 
 \section{Otwarte kwestie}
