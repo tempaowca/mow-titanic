@@ -17,3 +17,6 @@ vignettes/*.pdf
 *.log
 *.swp
 preliminary-assumptions.pdf
+final-documentation.pdf
+
+.idea/
