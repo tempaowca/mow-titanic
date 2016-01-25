@@ -37,8 +37,7 @@
 # travelled with very close friends or neighbors in a village, however,
 # the definitions do not support such relations.
 
-setwd('..')
-TRAIN.DATA.DIR = "data/train.csv"
+TRAIN.DATA.DIR = paste(getwd(), "/data/train.csv", sep="")
 train <- read.csv(TRAIN.DATA.DIR)
 
 # ANALIZA ZMIENNYCH ############################################
