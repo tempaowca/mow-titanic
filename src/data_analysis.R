@@ -69,10 +69,10 @@ mosaicplot(
 )
 
 ########################## Name ###############################
-class(train$Name) #factor - imie/nazwisko, mozna wyciagnac tytul (potem)
+class(train$Name) #factor - imie/nazwisko, mozna wyciagnac tytul
 
 ########################## Sex ################################
-class(train$Sex) #factor - plec (zmienna objasniajaca)
+class(train$Sex) #factor - plec (atrybut objasniajacy)
 table(train$Sex)
 # female   male 
 # 314    577 
@@ -96,18 +96,12 @@ summary(train$Age)
 # Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
 #    0.42   20.12   28.00   29.70   38.00   80.00     177 
 
-
-# SA BRAKI! - trzeba cos z tym zrobic (az 19%)
 hist(
   train$Age,
   col = "mediumpurple",
   xlab = "Age",
   main = "Age histogram"
 )
-
-# Co zrobic? Najlepiej to uzupelnic:
-# Pomysl 1 - uwzgledniajac rozklad dla plci (losowanie z gestosci lub np mediane)
-# Pomysl 2 - uwzgledniajac rozklad dla tytulu ze zmiennej Name (losowanie z gestosci lub np mediane)
 
 plot(
   train$PassengerId,
@@ -125,7 +119,7 @@ points(
 )
 
 ######################### SibSp ###############################
-class(train$SibSp) #integer - liczba rodzenstwa/malzonkow na pokladzie (zmienna objasniajaca)
+class(train$SibSp) #integer - liczba rodzenstwa/malzonkow na pokladzie (atrybut objasniajacy)
 table(train$SibSp)
 # 0   1   2   3   4   5   8 
 # 608 209  28  16  18   5   7
@@ -157,16 +151,14 @@ mosaicplot(
 )
 
 ######################### Ticket ##############################
-class(train$Ticket) #factor - numer biletu - ROZWAZYC SPOSOB WLACZENIA DO ANALIZY
+class(train$Ticket) #factor - numer biletu
 train$Ticket
 
 ######################### Fare ################################
-class(train$Fare) #numeric - oplata (zmienna objasniajaca)
+class(train$Fare) #numeric - oplata (atrybut objasniajacy)
 summary(train$Fare)
 hist(train$Fare)
 sum(train$Fare==0) # 15 osob z cena biletu 0 = traktowac jak brak danych
-# Co zrobic? Najlepiej to uzupelnic:
-# Pomysl 1 - uwzgledniajac rozklad dla klasy (zmienna Pclass) losowanie z gestosci lub np mediane)
 
 plot(
   train$PassengerId,
@@ -183,6 +175,7 @@ points(
   bg="gold"
 )
 
+# Mediany opłat w poszczególnych klasach
 median(train$Fare[train$Pclass==1 & train$Fare>0])
 median(train$Fare[train$Pclass==2 & train$Fare>0])
 median(train$Fare[train$Pclass==3 & train$Fare>0])
@@ -217,12 +210,12 @@ points(
 )
 
 ######################### Cabin ###############################
-class(train$Cabin) #factor - numer kabiny - ROZWAZYC SPOSOB WLACZENIA DO ANALIZY
+class(train$Cabin) #factor - numer kabiny
 train$Cabin
 sum(train$Cabin=="") # 687 brakow
 
 ######################### Embarked ############################
-class(train$Embarked) #factor - miejsce wsiascia/wysiascia (zmienna objasniajaca)
+class(train$Embarked) #factor - miejsce wsiascia/wysiascia (atrybut objasniajacy)
 table(train$Embarked)
 #         C   Q   S 
 #     2 168  77 644 
@@ -235,38 +228,4 @@ mosaicplot(
   ylab="Survived",
   off=c(5),
   cex.axis=1.2
-)
-
-######################################
-median(train$Fare[train$Pclass==1 & train$Fare>0])
-median(train$Fare[train$Pclass==2 & train$Fare>0])
-median(train$Fare[train$Pclass==3 & train$Fare>0])
-
-plot(
-  train$PassengerId,
-  log(train$Fare),
-  main="log(Fare) vs. Pclass",
-  ylab="Fare",
-  xlab="PassengerId"
-)
-points(
-  train$PassengerId[which(train$Pclass==1 & train$Fare>0)],
-  log(train$Fare[which(train$Pclass==1 & train$Fare>0)]),
-  col="mediumpurple",
-  pch=21,
-  bg="red"
-)
-points(
-  train$PassengerId[which(train$Pclass==2 & train$Fare>0)],
-  log(train$Fare[which(train$Pclass==2 & train$Fare>0)]),
-  col="mediumpurple",
-  pch=21,
-  bg="green"
-)
-points(
-  train$PassengerId[which(train$Pclass==3 & train$Fare>0)],
-  log(train$Fare[which(train$Pclass==3 & train$Fare>0)]),
-  col="mediumpurple",
-  pch=21,
-  bg="blue"
 )
