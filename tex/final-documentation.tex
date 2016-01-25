@@ -19,11 +19,11 @@
 \maketitle
 
 \section{Analiza i przygotowanie danych}
-W zbiorze danych mamy 12 zmiennych. Część z nich ma braki, które należy uzupełnić, gdyż nie wszystkie algorytmy radzą sobie z brakami danych.
+Zbiór danych składa się z 12 atrybutów. Część z nich ma braki, które należy uzupełnić, gdyż nie wszystkie algorytmy radzą sobie z brakami danych.
 
 \subsection{Klasa pasażerska}
 
-Ta zmienna nie ma braków danych. Rozkład przedstawia się następująco:
+Atrybut ten nie ma braków danych. Rozkład przedstawia się następująco:
 \begin{center}
     \begin{tabular}{| l | l | l |}
     \hline
@@ -33,12 +33,12 @@ Ta zmienna nie ma braków danych. Rozkład przedstawia się następująco:
     \end{tabular}
 \end{center}
 
-Na poniższym wykresie jasno widać, że zmienna ma wpływ na przeżycie.
-\includegraphics[scale=0.40]{images/survived-vs-pclass.png}
+Z poniższego wykresu można wywnioskować, że atrybut ten miał wpływ na przeżycie.\\
+\includegraphics[scale=0.4]{images/survived-vs-pclass.png}
 
 \subsection{Płeć}
 
-Ta zmienna również nie ma braków.
+Atrybut ten również nie ma braków, a rozkład przedstawia się następująco.
 \begin{center}
     \begin{tabular}{| l | l |}
     \hline
@@ -50,12 +50,12 @@ Ta zmienna również nie ma braków.
 
 Poniższy wykres pokazuje, że płeć ma wpływ na przeżycie.
 \begin{center}
-\includegraphics[scale=0.40]{images/survived-vs-sex.png}
+	\includegraphics[scale=0.40]{images/survived-vs-sex.png}
 \end{center}
 
 \subsection{Wiek}
 
-Wiek jest zmienną numeryczną o rozkładzie:
+Wiek jest atrybutem numerycznym o rozkładzie:
 \begin{center}
     \begin{tabular}{| l | l | l | l | l | l | l |}
     \hline
@@ -65,11 +65,11 @@ Min. & 1st Qu. & Median   & Mean & 3rd Qu.  &  Max.  &  NA's  \\ \hline
     \end{tabular}
 \end{center}
 
-Poniższy wykres pokazuje, że wiek nie wpływa w oczywisty sposób na przeżywalność.
+Wykres przedstawiony poniżej pokazuje, że wiek nie wpływa w oczywisty sposób na przeżywalność.
 
 \includegraphics[scale=0.40]{images/survived-vs-age.png}
 
-Braki danych zastąpiliśmy w eksperymentach medianą dla płci.
+Braki danych zastąpione zostały w eksperymentach medianą dla płci.
 
 \subsection{Liczba rodzeństwa/małżonków na pokładzie}
 
@@ -83,7 +83,7 @@ Nie ma braków danych. Rozkład przedstawia się następująco:
     \end{tabular}
 \end{center}
 
-Wykres pokazuje, że wpływ zmiennej nie jest jasny.
+Wykres pokazuje, że wpływ atrybutu nie jest jednoznaczny.
 
 \includegraphics[scale=0.40]{images/survived-vs-sibsp.png}
 
@@ -99,17 +99,19 @@ Nie ma braków danych. Rozkład przedstawia się następująco:
     \end{tabular}
 \end{center}
 
-Wykres pokazuje, że wpływ zmiennej nie jest jasny.
+Wykres pokazuje, że wpływ atrybutu nie jest jednoznaczny.
 \begin{center}
 \includegraphics[scale=0.40]{images/survived-vs-parch.png}
 \end{center}
 
 \subsection{Opłata}
 
-Na wykresie widać, że wpływ zmiennej nie jest jasny.
+Na wykresie widać, że wpływ atrybutu nie jest jednoznaczny.
 \begin{center}
 \includegraphics[scale=0.40]{images/survived-vs-fare.png}
 \end{center}
+
+TODO Jakimi dwiema zmiennymi?
 
 15 rekordów ma wartość 0, dlatego potraktowaliśmy je jako braki danych, które uzupełniliśmy medianą dla klasy. Poniższy wykres pokazuje zależność między tymi dwiema zmiennymi.
 \begin{center}
@@ -118,7 +120,7 @@ Na wykresie widać, że wpływ zmiennej nie jest jasny.
 
 \subsection{Miejsce wejścia na pokład }
 
-Większość pasażerów okrętowało się w Southampton, dlatego 2 brakujące rekordy zastąpimy tym właśnie portem.
+Większość pasażerów okrętowało się w Southampton, dlatego 2 brakujące rekordy zastąpione tym właśnie portem.
 \begin{center}
     \begin{tabular}{| l | l | l | l |}
     \hline
@@ -128,7 +130,7 @@ Większość pasażerów okrętowało się w Southampton, dlatego 2 brakujące r
     \end{tabular}
 \end{center}
 
-Zaskakująco dla nas, widać, że ta zmienna ma wpływ na przeżycie.
+Ku naszemu zaskoczeniu, widać, że wartości tego atrybutu posiadają korelację z wpływem na przeżycie osoby podróżującej.
 
 \includegraphics[scale=0.40]{images/survived-vs-embarked.png}
 
