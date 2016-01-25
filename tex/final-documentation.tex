@@ -188,7 +188,7 @@ Dla danych po selekcji atrybutów z sekcji \ref{attrSelec}, bez redukcji wymiaro
 \begin{center}
     \begin{tabular}{| l | l | l | l | l|}
     \hline
-        Dokładność &  Precyzja &  Czułośc & Specyficzność \\ \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
       	0.7856341 & 0.7253731 & 0.7105263 & 0.8324226  \\
     \hline
     \end{tabular}
@@ -205,7 +205,7 @@ Po przetworzeniu danych przez PCA i redukcji jednego wymiaru:
 \begin{center}
     \begin{tabular}{| l | l | l | l | l|}
     \hline
-        Dokładność &  Precyzja &  Czułośc & Specyficzność \\ \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
       	0.7890011 & 0.7319277 & 0.7105263 & 0.8378871  \\
     \hline
     \end{tabular}
@@ -222,7 +222,7 @@ Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
 \begin{center}
     \begin{tabular}{| l | l | l | l | l|}
     \hline
-        Dokładność &  Precyzja &  Czułośc & Specyficzność \\ \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
       	0.7609428 & 0.677686 & 0.7192982 & 0.7868852  \\
     \hline
     \end{tabular}
@@ -234,7 +234,58 @@ Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
 
 Współczynnik AUC: 0.8450985
 
+\subsection{Drzewo decyzyjne}
 
+Dla danych po selekcji atrybutów z sekcji \ref{attrSelec}, bez redukcji wymiarowości danych:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
+      	0.8035915 & 0.7889273 & 0.6666667 & 0.8888889 \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/treeNoPCA.png}
+\end{center}
+
+Współczynnik AUC wyniósł 0.8658379.
+
+Po przetworzeniu danych przez PCA i redukcji jednego wymiaru:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
+      	0.8103255 & 0.7912458 & 0.6871345 & 0.8870674  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/tree1.png}
+\end{center}
+
+Współczynnik AUC: 0.86873
+
+Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
+      	0.8080808 & 0.7840532 & 0.6900585 & 0.8816029  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/tree2.png}
+\end{center}
+
+Współczynnik AUC: 0.8623973
 
 \section{Ocena jakości modeli}
 \section{Podsumowanie}

@@ -182,7 +182,7 @@ mBayes$basicInd
 mBayes$auc
 drawROC(mBayes$fullSpec, mBayes$fullSens); title("Krzywa ROC dla naiwnego Bayesa - po PCA bez dwóch wymiarów")
 
-# Drzewo
+# Drzewo decyzyjne
 
 train <- trainWithoutPCA
 
@@ -206,7 +206,7 @@ drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa - redukcja
 # Redukcja dwóch wymiarów
 
 train <- pcaTable
-train[[7]] <- NULL
+train[[6]] <- NULL
 
 mTree<-crossValidate(smp,ind,"Tree")
 mTree$basicInd
