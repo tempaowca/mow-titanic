@@ -158,8 +158,67 @@ Z racji na 687 braków (w 891 próbkach) uznaliśmy, że tą zmienną pominiemy.
 Inną możliwościa jest próba użycia jej do lepszej klasyfikacji osób, które mają wartość dla tej zmiennej, ale tego również nie zrobiliśmy.
 
 \section{Selekcja atrybutów}
+\label{attrSelec}
 \section{Kalibracja}
 \section{Tworzenie modeli}
+
+Dla każdego algorytmu klasyfikacji użyto danych poddanych selekcji przedstawionej w sekcji \ref{attrSelec}. Dodatkowo wykorzystaliśmy algorytm PCA w celu redukcji wymiarowości danych, a następnie sprawdziliśmy jakość modelu po redukcji wymiarowości danych. Do tworzenia modelu i testowania jego jakości wykorzystaliśmy metodę kroswalidacji. W celu wizualnego przedstawienia jakości wytworzonego modelu dla każdego eksperymentu wygenerowana została krzywa ROC. 
+
+\subsection{Naiwny Bayes}
+
+Dla danych po selekcji atrybutów z sekcji \ref{attrSelec}, bez redukcji wymiarowości danych:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułośc & Specyficzność \\ \hline
+      	0.7856341 & 0.7253731 & 0.7105263 & 0.8324226  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/bayesNoPCA.png}
+\end{center}
+
+Współczynnik AUC (pole powierzchni pod krzywą ROC) wyniosło 0.8341482.
+
+Po przetworzeniu danych przez PCA i redukcji jednego wymiaru:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułośc & Specyficzność \\ \hline
+      	0.7890011 & 0.7319277 & 0.7105263 & 0.8378871  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/bayes1.png}
+\end{center}
+
+Współczynnik AUC: 0.8438415
+
+Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułośc & Specyficzność \\ \hline
+      	0.7609428 & 0.677686 & 0.7192982 & 0.7868852  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/bayes2.png}
+\end{center}
+
+Współczynnik AUC: 0.8450985
+
+
+
 \section{Ocena jakości modeli}
 \section{Podsumowanie}
 
