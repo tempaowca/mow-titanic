@@ -14,7 +14,7 @@ library(class) #knn
 library(stringr) #operacje na tekscie
 
 #### WCZYTANIE DANYCH ###########################################################################
-TRAIN.DATA.DIR = "~/mine/projects/mow-titanic/src/data/train.csv"
+TRAIN.DATA.DIR = paste(getwd(), "/data/train.csv", sep="")
 
 trainOriginal <- read.csv(TRAIN.DATA.DIR)
 
@@ -104,7 +104,7 @@ getModel<-function(model,tr,lb,ts,additional=list(0)){
   if (model=="KNN"){
     if(is.null(additional$k)){kValue=3}else{kValue=additional$k}
     myModel<-NA
-    myPred<- as.numeric(knn(tr[,c(1,2,4,5,6)],ts[,c(1,2,4,5,6)],lb,k=kValue,prob=T))-1 ##!!!! na sztywno numeryczne
+    myPred<- as.numeric(knn(tr[,c(1,2,4,5,6)],ts[,c(1,2,4,5,6)],lb,k=kValue,prob=T))-1
   }
   return(predictions<-myPred)
 }
@@ -140,20 +140,78 @@ crossValidate<-function(smp,ind,model,additional=list(0)){
 
 #### MODELOWANIE ####################################################################################
 train<-newVariables(trainOriginal)
-test<-newVariables(testOriginal)
+## Zamiana parametrów nienumerycznych na numeryczne - niezbędne do wykonania algorytmu PCA
+train$Sex <- ifelse(train$Sex == "male", 0, 1)
+train$Embarked <- ifelse(train$Embarked == "S", 0, train$Embarked)
+
+trainWithoutPCA <- train
+
+## PCA
+pcaTable <- princomp(train)
+pcaTable <- train$scores
+pcaTable <- as.data.frame(train)
 
 smp<-sample(891,891,replace=FALSE)
 ind<-c(0,seq(90,891,by=89))
+
+## Bayes
+
+## Bez PCA
 
 mBayes<-crossValidate(smp,ind,"Bayes")
 mBayes$basicInd
 mBayes$auc
 drawROC(mBayes$fullSpec, mBayes$fullSens); title("Krzywa ROC dla naiwnego Bayesa")
 
+## PCA bez jednej kolumny
+
+train <-pcaTable
+train[[7]] <- NULL
+
+mBayes<-crossValidate(smp,ind,"Bayes")
+mBayes$basicInd
+mBayes$auc
+drawROC(mBayes$fullSpec, mBayes$fullSens); title("Krzywa ROC dla naiwnego Bayesa - po PCA bez jednego wymiaru")
+
+## PCA bez dwóch kolumn
+
+train[[6]] <- NULL
+
+mBayes<-crossValidate(smp,ind,"Bayes")
+mBayes$basicInd
+mBayes$auc
+drawROC(mBayes$fullSpec, mBayes$fullSens); title("Krzywa ROC dla naiwnego Bayesa - po PCA bez dwóch wymiarów")
+
+# Drzewo
+
+train <- trainWithoutPCA
+
+# Bez PCA
+
 mTree<-crossValidate(smp,ind,"Tree")
 mTree$basicInd
 mTree$auc
 drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa")
+
+# Redukcja jednego wymiarów
+
+train <- pcaTable
+train[[7]] <- NULL
+
+mTree<-crossValidate(smp,ind,"Tree")
+mTree$basicInd
+mTree$auc
+drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa - redukcja jednego wymiaru")
+
+# Redukcja dwóch wymiarów
+
+train <- pcaTable
+train[[7]] <- NULL
+
+mTree<-crossValidate(smp,ind,"Tree")
+mTree$basicInd
+mTree$auc
+drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa - redukcja dwóch wymiarów")
 
 # przyklad z lepszym cp
 mTree<-crossValidate(smp,ind,"Tree",list(cp=0.002))
@@ -161,7 +219,7 @@ mTree$basicInd
 mTree$auc
 drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa")
 
-mLDA<-crossValidate(smp,ind,"LDA") # czesto krzyczy, ze 'variables are collinear' - ignorowac:)
+mLDA<-crossValidate(smp,ind,"LDA")
 mLDA$basicInd
 mLDA$auc
 drawROC(mLDA$fullSpec, mLDA$fullSens); title("Krzywa ROC dla naiwnego Bayesa")
@@ -171,7 +229,7 @@ mKNN$basicInd
 #dla KNN nie rysujemy ROC i nie liczymy AUC
 
 mKNN<-crossValidate(smp,ind,"KNN",list(k=10)) 
-mKNN$basicInd #w sumie wszedzie dokladnosc slaba jak barszcz
+mKNN$basicInd
 
 # kalibracja KNN
 accuracies <- c()
