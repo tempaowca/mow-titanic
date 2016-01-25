@@ -113,11 +113,11 @@ Na wykresie widać, że wpływ atrybutu nie jest jednoznaczny, ale większość 
 
 15 rekordów ma wartość 0, dlatego potraktowaliśmy je jako braki danych, które uzupełniliśmy medianą dla klasy. Poniższy wykres pokazuje zależność między tymi dwiema zmiennymi.
 
-TODO co przedstawia ten wykres
-
 \begin{center}
 	\includegraphics[scale=0.40]{images/logfare-vs-pclass.png}
 \end{center}
+
+Widać, że istnieje zależność między klasą a opłatą, w związku z czym 15 braków uzupełniliśmy medianą dla klasy.
 
 \subsection{Miejsce wejścia na pokład }
 
@@ -134,6 +134,28 @@ Większość pasażerów okrętowało się w Southampton, dlatego 2 brakujące r
 Ku naszemu zaskoczeniu, widać, że wartości tego atrybutu posiadają korelację z wpływem na przeżycie osoby podróżującej.
 
 \includegraphics[scale=0.40]{images/survived-vs-embarked.png}
+
+\subsection{Atrybuty, których nie bierzemy pod uwagę}
+Część atrybutów ze zbioru danych nie została uwzględniona przez nas w eksperymentów.
+
+\subsubsection{Identyfikator pasażera}
+Jest to zmienna porządkowa, identyfikator pasażera w zbiorze danych -- nie ma sensu tego uwzględniać.
+
+\subsubsection{Przeżycie}
+Jest to atrybut objaśniany, dlatego nie możemy go użyć do budowy modelu.
+
+\subsubsection{Imię i nazwisko}
+Na początku uznaliśmy, że ten atrybut również możemy pominąć, w związku z czym ta kolumna nie jest uwzględniona w eksperymentach.
+Potem zauważyliśmy, że poza imieniem i nazwiskiem zawarty jest także tytuł. Naszym pomysłem, którego nei zdążyliśmy zrealizować,
+jest podzielenie tej kolumny na 4 klasy: panna, pani, pan (nieżonaty) i pan (żonaty). Taki podział wydaje się sensowniejszy od imienia i nazwiska,
+więc prawdopodobnie mogłoby to wpłynąć na budowane modele.
+
+\subsubsection{Numer biletu}
+Ten atrybut zawiera wartości alfanumeryczne. Nie udało nam się wymyślić w jaki sposób możemy tego użyc przy analizie.
+
+\subsubsection{Kajuta}
+Z racji na 687 braków (w 891 próbkach) uznaliśmy, że tą zmienną pominiemy.
+Inną możliwościa jest próba użycia jej do lepszej klasyfikacji osób, które mają wartość dla tej zmiennej, ale tego również nie zrobiliśmy.
 
 \section{Selekcja atrybutów}
 \section{Kalibracja}
