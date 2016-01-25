@@ -37,8 +37,8 @@
 # travelled with very close friends or neighbors in a village, however,
 # the definitions do not support such relations.
 
-# nie potrafie zrobic ladnie sciezki wzglednej wiec tu trzeba skonfigurowac
-TRAIN.DATA.DIR = "~/mine/projects/mow-titanic/src/data/train.csv"
+setwd('..')
+TRAIN.DATA.DIR = "data/train.csv"
 train <- read.csv(TRAIN.DATA.DIR)
 
 # ANALIZA ZMIENNYCH ############################################
