@@ -172,3 +172,26 @@ mKNN$basicInd
 
 mKNN<-crossValidate(smp,ind,"KNN",list(k=10)) 
 mKNN$basicInd #w sumie wszedzie dokladnosc slaba jak barszcz
+
+# kalibracja KNN
+accuracies <- c()
+for(i in 3:50) {
+  mKNN<-crossValidate(smp,ind,"KNN",list(k=i))
+  print(i)
+  print(mKNN$basicInd[1])
+  accuracies <- append(accuracies, unlist(mKNN$basicInd[,1]))
+}
+
+plot(
+  3:50,
+  accuracies,
+  main = "Accuracy ~ neighbours",
+  ylab = "accuracy",
+  xlab = "neighbours",
+  ylim=c(0.6,0.8)
+)
+
+# kalibracja drzewa
+myModel<-rpart(as.factor(trainOriginal$Survived)~.,data=train, method = "class", control=rpart.control(cp=0.00001))
+plotcp(myModel )
+myModel$cptable

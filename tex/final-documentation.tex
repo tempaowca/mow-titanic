@@ -159,6 +159,23 @@ Inną możliwościa jest próba użycia jej do lepszej klasyfikacji osób, któr
 
 \section{Selekcja atrybutów}
 \section{Kalibracja}
+\subsection{Drzewo}
+Drzewo możemy kalibrować poprzez odcięcie w odpowiednim momencie. Zgodnie z dokumentacją {\itshape rpart} należy to przyciąć dla parametru $cp$
+dla pierwszej kropki poniżej linii przerywanej na poniższym wykresie. Oznacza to, że przy generowaniu modelu z użyciem drzewa losowego, parametr $cp$ należy ustawić na $0.01$.
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/przycinanie.png}
+\end{center}
+
+\subsection{KNN}
+Metodę $K$-najbliższych sąsiadów można parametryzować przez liczbę głosujących sąsiadów. Poniższy wykres przedstawia zależność celności modelu w zależności od liczby sąsiadów.
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/accuracy-neighbours50.png}
+\end{center}
+
+Jak łatwo zauważyć celnośc na początku jest raczej stabilna, natomiast potem zaczyna spadać liniowo. Najlepszą celność uzyskaliśmy dla liczby sąsiadów $3$, dlatego takiej wartości użyliśmy przy eksperymentach.
+
 \section{Tworzenie modeli}
 \section{Ocena jakości modeli}
 \section{Podsumowanie}
