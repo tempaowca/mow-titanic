@@ -459,6 +459,30 @@ Dla KNN obliczone zostały tylko wartości wskaźników. Bazując na przeprowadz
 \end{center}
 
 \section{Ocena jakości modeli}
+\begin{center}
+    \begin{tabular}{| r | c | c | c | c | c |}
+    \hline
+        Model & AUC & Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
+        Bayes & 0.8341482 & 0.7856341 & 0.7253731 & 0.7105263 & 0.8324226  \\ \hline
+        Bayes PCA 1 & 0.8438415 & 0.7890011 & 0.7319277 & 0.7105263 & 0.8378871  \\ \hline
+        Bayes PCA 2 & 0.8450985 & 0.7609428 & 0.677686 & 0.7192982 & 0.7868852  \\ \hline
+        Drzewo & 0.8658379 & 0.8035915 & 0.7889273 & 0.6666667 & 0.8888889 \\ \hline
+        Drzewo PCA 1 & 0.8687300 & 0.8103255 & 0.7912458 & 0.6871345 & 0.8870674  \\ \hline
+        Drzewo PCA 2 & 0.8623973 & 0.8080808 & 0.7840532 & 0.6900585 & 0.8816029  \\ \hline
+        Drzewo+ & 0.8698378 & 0.8103255 & 0.8078292 & 0.6637427 & 0.9016393 \\ \hline
+        Drzewo+ PCA 1 & 0.8711160 & 0.8170595 & 0.8140351 & 0.6783626 & 0.9034608  \\ \hline
+        Drzewo+ PCA 2 & 0.8617103 & 0.8125701 & 0.8048780 & 0.6754386 & 0.8979964  \\ \hline
+        Lasy & 0.8790145 & 0.8305275 & 0.8327526 & 0.6988304 & 0.9125683 \\ \hline
+        Lasy PCA 1 & 0.8756325 & 0.8271605 & 0.8197279 & 0.7046784 & 0.9034608 \\ \hline
+        Lasy PCA 2 & 0.8721226 & 0.8305275 & 0.8281787 & 0.7046784 & 0.9089253  \\ \hline
+        LDA & 0.8549835 & 0.7934905 & 0.7484277 & 0.6959064 & 0.8542805 \\ \hline
+        LDA PCA 1 & 0.8555694 & 0.7890011 & 0.7483871 & 0.6783626 & 0.8579235  \\ \hline
+        LDA PCA 2 & 0.8548451 & 0.7912458 & 0.7532468 & 0.6783626 & 0.8615665  \\ \hline
+        KNN & -- & 0.7070707 & 0.6483516 & 0.5175439 & 0.8251366  \\
+    \hline
+    \end{tabular}
+\end{center}
+
 \section{Podsumowanie}
 Podczas projektu analizowaliśmy dane dotyczące pasażerów Titanica. Udało nam się stworzyć modele obrazujące zależność między pewnymi atrybutami pasażera, a szansą przeżycia.
 
