@@ -5,6 +5,7 @@ install.packages("rpart") #drzewa
 install.packages("klaR")  #selekcja
 install.packages("class") #knn
 install.packages("stringr") #operacje na tekscie
+install.packages("randomForest") #lasy
 
 library(MASS)  #lda
 library(e1071) #naiveBayes
@@ -12,6 +13,7 @@ library(rpart) #drzewa
 library(klaR)  #selekcja
 library(class) #knn
 library(stringr) #operacje na tekscie
+library(randomForest) #lasy
 
 #### WCZYTANIE DANYCH ###########################################################################
 TRAIN.DATA.DIR = paste(getwd(), "/data/train.csv", sep="")
@@ -95,6 +97,11 @@ getModel<-function(model,tr,lb,ts,additional=list(0)){
   if (model=="Tree"){
     if(is.null(additional$cp)){cpValue=0.0001}else{cpValue=additional$cp}
     myModel<-rpart(lb~.,tr, method = "class", control=rpart.control(cp=cpValue))
+    myPred<-predict(myModel, ts, type="prob")[,2]
+  }
+  if (model=="Forest"){
+    if(is.null(additional$ntree)){ntreeValue=100}else{ntreeValue=additional$ntree}
+    myModel<-randomForest(tr, lb, ntree=ntreeValue)
     myPred<-predict(myModel, ts, type="prob")[,2]
   }
   if (model=="LDA"){
@@ -242,6 +249,36 @@ mTree<-crossValidate(smp,ind,"Tree",list(cp=0.015))
 mTree$basicInd
 mTree$auc
 drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa ze zmienionym cp- redukcja dwóch wymiarów")
+
+# Lasy losowe 
+
+# Bez PCA
+
+train <- trainWithoutPCA
+
+mForest<-crossValidate(smp, ind, "Forest")
+mForest$basicInd
+mForest$auc
+drawROC(mForest$fullSpec, mForest$fullSens); title("Krzywa ROC dla lasów losowych")
+
+# Redukcja jednego wymiaru
+
+train <- pcaTable
+train[[7]] <- NULL
+
+mForest<-crossValidate(smp, ind, "Forest")
+mForest$basicInd
+mForest$auc
+drawROC(mForest$fullSpec, mForest$fullSens); title("Krzywa ROC dla lasów losowych - redukcja jednego wymiaru")
+
+# Redukcja dwóch wymiarów
+
+train[[6]] <- NULL
+
+mForest<-crossValidate(smp, ind, "Forest")
+mForest$basicInd
+mForest$auc
+drawROC(mForest$fullSpec, mForest$fullSens); title("Krzywa ROC dla lasów losowych - redukcja dwóch wymiarów")
 
 # LDA
 

@@ -339,6 +339,59 @@ Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
 
 Współczynnik AUC: 0.8617103.
 
+\subsection{Lasy losowe}
+
+Dla danych po selekcji atrybutów z sekcji \ref{attrSelec}, bez redukcji wymiarowości danych:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
+      	0.8305275 & 0.8327526 & 0.6988304 & 0.9125683 \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/forestNoPCA.png}
+\end{center}
+
+Współczynnik AUC wyniósł 0.8790145.
+
+Po przetworzeniu danych przez PCA i redukcji jednego wymiaru:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
+      	 0.8271605 & 0.8197279 & 0.7046784 & 0.9034608 \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/forest1.png}
+\end{center}
+
+Współczynnik AUC: 0.8756325.
+
+Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
+
+\begin{center}
+    \begin{tabular}{| l | l | l | l | l|}
+    \hline
+        Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
+      	0.8305275 & 0.8281787 & 0.7046784 & 0.9089253  \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+	\includegraphics[scale=0.40]{images/cptree2.png}
+\end{center}
+
+Współczynnik AUC: 0.8721226.
+
 \subsection{LDA}
 
 Dla danych po selekcji atrybutów z sekcji \ref{attrSelec}, bez redukcji wymiarowości danych:
@@ -353,7 +406,7 @@ Dla danych po selekcji atrybutów z sekcji \ref{attrSelec}, bez redukcji wymiaro
 \end{center}
 
 \begin{center}
-	\includegraphics[scale=0.40]{images/ldaNoPCA.png}
+	\includegraphics[scale=0.40]{images/forest2.png}
 \end{center}
 
 Współczynnik AUC wyniósł 0.8549835.
