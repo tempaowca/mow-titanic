@@ -407,5 +407,19 @@ Dla KNN obliczone zostały tylko wartości wskaźników. Bazując na przeprowadz
 
 \section{Ocena jakości modeli}
 \section{Podsumowanie}
+Podczas projektu analizowaliśmy dane dotyczące pasażerów Titanica. Udało nam się stworzyć modele obrazujące zależność między pewnymi atrybutami pasażera, a szansą przeżycia.
+
+Przed wykonaniem modeli dokonaliśmy analizy danych pod kątem możliwości użycia w budowanych modelach. Części danych nie udało nam się wykorzystać.
+W częsci musieliśmy uzupełnić braki. Przyjęliśmy, że lepiej będziemy mogli porównać modele używając w każdym z nich dokładnie tych samych danych,
+niezależnie od tego czy metoda radzi sobie z brakami, czy nie.
+
+Następnie użyliśmy algorytmu PCA, aby usunąć najmniej istotne kolumny. Pozwoliło to zbadać wpływ użytych kolumn na uzyskane wyniki.
+
+Część modeli wykalibrowaliśmy: drzewo ucięliśmy, natomiast w metodzie KNN zbadaliśmy wpływ liczby sąsiadów.
+
+Uzyskane modele porównaliśmy pod kątem pola pod krzywą ROC oraz parametrów czułości, specyficzności, precyzji i dokładności.
+Wszystkie modele (dla których można narysować krzywą ROC) miały "wypukłą" krzywą, ponad linią prostej losowej.
+
+Projekt pozwolił nam lepiej zrozumieć proces analizowania i klasyfikacji danych.
 
 \end{document}
