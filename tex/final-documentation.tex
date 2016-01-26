@@ -48,7 +48,7 @@ Atrybut ten również nie ma braków, a rozkład przedstawia się następująco.
     \end{tabular}
 \end{center}
 
-Poniższy wykres pokazuje, że płeć ma wpływ na przeżycie.
+Poniższy wykres pokazuje, że płeć miała wpływ na przeżycie.
 \begin{center}
 	\includegraphics[scale=0.40]{images/survived-vs-sex.png}
 \end{center}
@@ -387,7 +387,7 @@ Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
 \end{center}
 
 \begin{center}
-	\includegraphics[scale=0.40]{images/cptree2.png}
+	\includegraphics[scale=0.40]{images/forest2.png}
 \end{center}
 
 Współczynnik AUC: 0.8721226.
@@ -406,7 +406,7 @@ Dla danych po selekcji atrybutów z sekcji \ref{attrSelec}, bez redukcji wymiaro
 \end{center}
 
 \begin{center}
-	\includegraphics[scale=0.40]{images/forest2.png}
+	\includegraphics[scale=0.40]{images/ldaNoPCA.png}
 \end{center}
 
 Współczynnik AUC wyniósł 0.8549835.
@@ -434,16 +434,16 @@ Po przetworzeniu danych przez PCA i redukcji dwóch wymiarów:
     \begin{tabular}{| l | l | l | l | l|}
     \hline
         Dokładność &  Precyzja &  Czułość & Specyficzność \\ \hline
-      	0.7912458 & 0.7532468 & 0.6783626 & 0.8615665  \\
+      	0.7912458 & 0.75 & 0.6842105 & 0.8579235  \\
     \hline
     \end{tabular}
 \end{center}
 
 \begin{center}
-	\includegraphics[scale=0.40]{images/cptree2.png}
+	\includegraphics[scale=0.40]{images/lda2.png}
 \end{center}
 
-Współczynnik AUC: 0.8548451.
+Współczynnik AUC: 0.8549676.
 
 \subsection{KNN}
 
@@ -477,7 +477,7 @@ Dla KNN obliczone zostały tylko wartości wskaźników. Bazując na przeprowadz
         Lasy PCA 2 & 0.8721226 & 0.8305275 & 0.8281787 & 0.7046784 & 0.9089253  \\ \hline
         LDA & 0.8549835 & 0.7934905 & 0.7484277 & 0.6959064 & 0.8542805 \\ \hline
         LDA PCA 1 & 0.8555694 & 0.7890011 & 0.7483871 & 0.6783626 & 0.8579235  \\ \hline
-        LDA PCA 2 & 0.8548451 & 0.7912458 & 0.7532468 & 0.6783626 & 0.8615665  \\ \hline
+        LDA PCA 2 & 0.8549676 & 0.7912458 & 0.75 & 0.6842105 & 0.8579235  \\ \hline
         KNN & -- & 0.7070707 & 0.6483516 & 0.5175439 & 0.8251366  \\
     \hline
     \end{tabular}
@@ -491,12 +491,11 @@ Zastosowanie algorytmu PCA do redukcji wymiaru danych, w przypadku niektórych m
 Podczas projektu analizowaliśmy dane dotyczące pasażerów Titanica. Udało nam się stworzyć modele obrazujące zależność między pewnymi atrybutami pasażera, a szansą przeżycia.
 
 Przed wykonaniem modeli dokonaliśmy analizy danych pod kątem możliwości użycia w budowanych modelach. Części danych nie udało nam się wykorzystać.
-W częsci musieliśmy uzupełnić braki. Przyjęliśmy, że lepiej będziemy mogli porównać modele używając w każdym z nich dokładnie tych samych danych,
-niezależnie od tego czy metoda radzi sobie z brakami, czy nie.
+W części musieliśmy uzupełnić braki. Przyjęliśmy, że lepiej będziemy mogli porównać modele używając w każdym z nich dokładnie tych samych danych, niezależnie od tego czy metoda radzi sobie z brakami, czy nie.
 
-Następnie użyliśmy algorytmu PCA, aby usunąć najmniej istotne kolumny. Pozwoliło to zbadać wpływ użytych kolumn na uzyskane wyniki.
+Następnie wykorzystaliśmy algorytm PCA, do redukcji wymiarowości danych. Pozwoliło to zbadać wpływ użytych kolumn na uzyskane wyniki.
 
-Część modeli wykalibrowaliśmy: drzewo ucięliśmy, natomiast w metodzie KNN zbadaliśmy wpływ liczby sąsiadów.
+Część modeli poddaliśmy kalibracji: drzewo ucięliśmy, natomiast w metodzie KNN zbadaliśmy wpływ liczby sąsiadów.
 
 Uzyskane modele porównaliśmy pod kątem pola pod krzywą ROC oraz parametrów czułości, specyficzności, precyzji i dokładności.
 Wszystkie modele (dla których można narysować krzywą ROC) miały "wypukłą" krzywą, ponad linią prostej losowej.

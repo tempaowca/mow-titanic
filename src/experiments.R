@@ -15,7 +15,7 @@ library(class) #knn
 library(stringr) #operacje na tekscie
 library(randomForest) #lasy
 
-#### WCZYTANIE DANYCH ###########################################################################
+#### WCZYTANIE DANYCH ###########################################################################)
 TRAIN.DATA.DIR = paste(getwd(), "/data/train.csv", sep="")
 
 trainOriginal <- read.csv(TRAIN.DATA.DIR)
@@ -301,9 +301,6 @@ mLDA$basicInd
 mLDA$auc
 drawROC(mLDA$fullSpec, mLDA$fullSens); title("Krzywa ROC dla LDA - redukcja jednego wymiaru")
 
-mKNN<-crossValidate(smp,ind,"KNN")
-mKNN$basicInd
-
 # Redukcja dwóch wymiarów
 
 train[[6]] <- NULL
@@ -316,6 +313,9 @@ drawROC(mLDA$fullSpec, mLDA$fullSens); title("Krzywa ROC dla LDA - redukcja dwó
 #dla KNN nie rysujemy ROC i nie liczymy AUC
 
 train <- trainWithoutPCA
+
+mKNN<-crossValidate(smp,ind,"KNN")
+mKNN$basicInd
 
 mKNN<-crossValidate(smp,ind,"KNN",list(k=20)) 
 mKNN$basicInd
