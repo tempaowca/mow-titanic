@@ -213,22 +213,74 @@ mTree$basicInd
 mTree$auc
 drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa - redukcja dwóch wymiarów")
 
-# przyklad z lepszym cp
-mTree<-crossValidate(smp,ind,"Tree",list(cp=0.002))
+#Drzewo decyzyjne ze zmienionym parametrem cp
+
+# Bez PCA
+
+train <- trainWithoutPCA
+
+mTree<-crossValidate(smp,ind,"Tree",list(cp=0.015))
 mTree$basicInd
 mTree$auc
-drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa")
+drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa ze zmienionym cp")
+
+# Redukcja jednego wymiaru
+
+train <- pcaTable
+train[[7]] <- NULL
+
+mTree<-crossValidate(smp,ind,"Tree",list(cp=0.015))
+mTree$basicInd
+mTree$auc
+drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa ze zmienionym cp- redukcja jednego wymiaru")
+
+# Redukcja dwóch wymiarów
+
+train[[6]] <- NULL
+
+mTree<-crossValidate(smp,ind,"Tree",list(cp=0.015))
+mTree$basicInd
+mTree$auc
+drawROC(mTree$fullSpec, mTree$fullSens); title("Krzywa ROC dla drzewa ze zmienionym cp- redukcja dwóch wymiarów")
+
+# LDA
+
+# Bez PCA 
+
+train <- trainWithoutPCA
 
 mLDA<-crossValidate(smp,ind,"LDA")
 mLDA$basicInd
 mLDA$auc
-drawROC(mLDA$fullSpec, mLDA$fullSens); title("Krzywa ROC dla naiwnego Bayesa")
+drawROC(mLDA$fullSpec, mLDA$fullSens); title("Krzywa ROC dla LDA")
+
+# Redukcja jednego wymiaru
+
+train <- pcaTable
+train[[7]] <- NULL
+
+mLDA<-crossValidate(smp,ind,"LDA")
+mLDA$basicInd
+mLDA$auc
+drawROC(mLDA$fullSpec, mLDA$fullSens); title("Krzywa ROC dla LDA - redukcja jednego wymiaru")
 
 mKNN<-crossValidate(smp,ind,"KNN")
 mKNN$basicInd
+
+# Redukcja dwóch wymiarów
+
+train[[6]] <- NULL
+
+mLDA<-crossValidate(smp,ind,"LDA")
+mLDA$basicInd
+mLDA$auc
+drawROC(mLDA$fullSpec, mLDA$fullSens); title("Krzywa ROC dla LDA - redukcja dwóch wymiarów")
+
 #dla KNN nie rysujemy ROC i nie liczymy AUC
 
-mKNN<-crossValidate(smp,ind,"KNN",list(k=10)) 
+train <- trainWithoutPCA
+
+mKNN<-crossValidate(smp,ind,"KNN",list(k=20)) 
 mKNN$basicInd
 
 # kalibracja KNN
